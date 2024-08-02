@@ -36,6 +36,8 @@ function operate(operator, num1, num2) {
 const buttons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector(".clear-button");
 
+console.log(buttons);
+
 let output = document.querySelector(".output");
 
 let displayValue = "";
@@ -46,6 +48,13 @@ buttons.forEach((btn) => {
     output.innerText = displayValue;
   });
 });
+
+// for (let i = 0; i < buttons.length; i++) {
+//   buttons[i].addEventListener("click", (e) => {
+//     displayValue += e.target.innerText;
+//     output.innerText = displayValue;
+//   });
+// }
 
 clearButton.addEventListener("click", () => {
   displayValue = "";
