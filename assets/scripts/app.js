@@ -43,13 +43,11 @@ let displayValue = "";
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     displayValue += e.target.innerText;
-    console.log(displayValue);
     output.innerText = displayValue;
   });
 });
 
-clearButton.addEventListener("click", (e) => {
-  displayValue = null;
-  console.log(displayValue);
+clearButton.addEventListener("click", () => {
+  displayValue = "";
   output.innerText = displayValue;
 });
