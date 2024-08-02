@@ -32,3 +32,24 @@ function operate(operator, num1, num2) {
     return divide(num1, num2);
   }
 }
+
+const buttons = document.querySelectorAll(".number-button");
+const clearButton = document.querySelector(".clear-button");
+
+let output = document.querySelector(".output");
+
+let displayValue = "";
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    displayValue += e.target.innerText;
+    console.log(displayValue);
+    output.innerText = displayValue;
+  });
+});
+
+clearButton.addEventListener("click", (e) => {
+  displayValue = null;
+  console.log(displayValue);
+  output.innerText = displayValue;
+});
