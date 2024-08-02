@@ -33,4 +33,21 @@ function operate(operator, num1, num2) {
   }
 }
 
-console.log(operate("*", 3, 2));
+const buttons = document.querySelectorAll(".number-button");
+const clearButton = document.querySelector(".clear-button");
+
+let output = document.querySelector(".output");
+
+let displayValue = "";
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    displayValue += e.target.innerText;
+    output.innerText = displayValue;
+  });
+});
+
+clearButton.addEventListener("click", () => {
+  displayValue = "";
+  output.innerText = displayValue;
+});
