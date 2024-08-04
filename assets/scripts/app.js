@@ -50,13 +50,11 @@ buttons.forEach((btn) => {
     if (operator === "") {
       num1 += e.target.innerText;
       displayValue += num1;
-      output.innerText = displayValue;
-    }
-    if (operator != "") {
+    } else {
       num2 += e.target.innerText;
       displayValue += num2;
-      output.innerText = displayValue;
     }
+    output.innerText = displayValue;
   });
 });
 
