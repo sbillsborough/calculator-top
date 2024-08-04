@@ -70,6 +70,9 @@ operatorButton.forEach((btn) => {
 
 equalsButton.addEventListener("click", () => {
   operate(operator, num1, num2);
+  num1 = displayValue;
+  num2 = "";
+  operator = "";
 });
 
 clearButton.addEventListener("click", () => {
