@@ -62,9 +62,11 @@ buttons.forEach((btn) => {
 
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    operator += e.target.innerText;
-    displayValue += operator;
-    output.innerText = displayValue;
+    if (operator === "") {
+      operator += e.target.innerText;
+      displayValue += operator;
+      output.innerText = displayValue;
+    }
   });
 });
 
