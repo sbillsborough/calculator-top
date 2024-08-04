@@ -4,10 +4,16 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
   width: 338px;
   height: 319px;
-  margin: 50px auto;
 }
 
 p {
