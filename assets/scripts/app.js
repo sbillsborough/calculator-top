@@ -14,13 +14,6 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-const operatorsObj = {
-  add: "+",
-  subtract: "-",
-  multiply: "*",
-  divide: "/",
-};
-
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -41,9 +34,9 @@ function operate(operator, num1, num2) {
 }
 
 const buttons = document.querySelectorAll(".number-button");
+const operatorButton = document.querySelectorAll(".operator-button");
+const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
-
-console.log(buttons);
 
 let output = document.querySelector(".output");
 
@@ -51,19 +44,33 @@ let displayValue = "";
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    displayValue += e.target.innerText;
+    if (operator === "") {
+      num1 += e.target.innerText;
+      displayValue += num1;
+      output.innerText = displayValue;
+    }
+    if (operator != "") {
+      num2 += e.target.innerText;
+      displayValue += num2;
+      output.innerText = displayValue;
+    }
+  });
+});
+
+operatorButton.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    operator += e.target.innerText;
+    displayValue += operator;
     output.innerText = displayValue;
   });
 });
 
-// for (let i = 0; i < buttons.length; i++) {
-//   buttons[i].addEventListener("click", (e) => {
-//     displayValue += e.target.innerText;
-//     output.innerText = displayValue;
-//   });
-// }
+equalsButton.addEventListener("click", operate);
 
 clearButton.addEventListener("click", () => {
   displayValue = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
   output.innerText = displayValue;
 });
