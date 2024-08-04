@@ -14,6 +14,13 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
+const operatorsObj = {
+  add: "+",
+  subtract: "-",
+  multiply: "*",
+  divide: "/",
+};
+
 let num1 = "";
 let num2 = "";
 let operator = "";
