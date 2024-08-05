@@ -40,6 +40,7 @@ function operate(operator, num1, num2) {
 
 const buttons = document.querySelectorAll(".number-button");
 const operatorButton = document.querySelectorAll(".operator-button");
+const decimalButton = document.querySelector(".decimal-button");
 const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
 
@@ -66,6 +67,21 @@ operatorButton.forEach((btn) => {
       output.innerText = displayValue;
     }
   });
+});
+
+decimalButton.addEventListener("click", (e) => {
+  if (operator === "") {
+    if (!num1.includes(".")) {
+      num1 += e.target.innerText;
+      displayValue = num1;
+    }
+  } else {
+    if (!num2.includes(".")) {
+      num2 += e.target.innerText;
+      displayValue = num2;
+    }
+  }
+  output.innerText = displayValue;
 });
 
 equalsButton.addEventListener("click", () => {
