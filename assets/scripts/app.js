@@ -73,12 +73,10 @@ decimalButton.addEventListener("click", (e) => {
   if (operator === "") {
     if (!num1.includes(".")) {
       num1 += e.target.innerText;
-      displayValue = num1;
     }
   } else {
     if (!num2.includes(".")) {
       num2 += e.target.innerText;
-      displayValue += num2;
     }
   }
   output.innerText = num1 + operator + num2;
