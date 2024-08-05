@@ -34,7 +34,8 @@ function operate(operator, num1, num2) {
     result = divide(num1, num2);
   }
 
-  displayValue = result.toString();
+  displayValue = result.toFixed(2);
+
   output.innerText = displayValue;
 }
 
