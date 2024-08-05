@@ -53,16 +53,16 @@ buttons.forEach((btn) => {
       displayValue = num1;
     } else {
       num2 += e.target.innerText;
-      displayValue = num2;
+      displayValue += num2;
     }
-    output.innerText += displayValue;
+    output.innerText = num1 + operator + num2;
   });
 });
 
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    if (operator === "") {
-      operator += e.target.innerText;
+    if (operator === "" && num1 !== "") {
+      operator = e.target.innerText;
       displayValue += operator;
       output.innerText = displayValue;
     }
@@ -78,10 +78,10 @@ decimalButton.addEventListener("click", (e) => {
   } else {
     if (!num2.includes(".")) {
       num2 += e.target.innerText;
-      displayValue = num2;
+      displayValue += num2;
     }
   }
-  output.innerText = displayValue;
+  output.innerText = num1 + operator + num2;
 });
 
 equalsButton.addEventListener("click", () => {
