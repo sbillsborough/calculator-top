@@ -59,10 +59,17 @@ button {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  width: 334px;
+  width: 244px;
 }
 
 .number-button {
+  background: rgb(231, 231, 231);
+  border: none;
+  border-radius: 3px;
+}
+
+.decimal-button {
+  margin-top: 2px;
   background: rgb(231, 231, 231);
   border: none;
   border-radius: 3px;

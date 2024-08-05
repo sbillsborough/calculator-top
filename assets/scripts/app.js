@@ -20,8 +20,8 @@ let operator = "";
 let displayValue = "";
 
 function operate(operator, num1, num2) {
-  num1 = parseInt(num1);
-  num2 = parseInt(num2);
+  num1 = parseFloat(num1);
+  num2 = parseFloat(num2);
   let result = 0;
 
   if (operator === "+") {
@@ -34,12 +34,14 @@ function operate(operator, num1, num2) {
     result = divide(num1, num2);
   }
 
-  displayValue = result.toString();
+  displayValue = result.toFixed(2);
+
   output.innerText = displayValue;
 }
 
 const buttons = document.querySelectorAll(".number-button");
 const operatorButton = document.querySelectorAll(".operator-button");
+const decimalButton = document.querySelector(".decimal-button");
 const equalsButton = document.querySelector(".equals-button");
 const clearButton = document.querySelector(".clear-button");
 
@@ -49,27 +51,45 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (operator === "") {
       num1 += e.target.innerText;
-      displayValue += num1;
-      output.innerText = displayValue;
-    }
-    if (operator != "") {
+      displayValue = num1;
+    } else {
       num2 += e.target.innerText;
       displayValue += num2;
-      output.innerText = displayValue;
     }
+    output.innerText = num1 + operator + num2;
   });
 });
 
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    operator += e.target.innerText;
-    displayValue += operator;
-    output.innerText = displayValue;
+    if (operator === "" && num1 !== "") {
+      operator = e.target.innerText;
+      displayValue += operator;
+      output.innerText = displayValue;
+    }
   });
 });
 
+decimalButton.addEventListener("click", (e) => {
+  if (operator === "") {
+    if (!num1.includes(".")) {
+      num1 += e.target.innerText;
+    }
+  } else {
+    if (!num2.includes(".")) {
+      num2 += e.target.innerText;
+    }
+  }
+  output.innerText = num1 + operator + num2;
+});
+
 equalsButton.addEventListener("click", () => {
-  operate(operator, num1, num2);
+  if (num1 !== "" && num2 !== "" && operator != "") {
+    operate(operator, num1, num2);
+    num1 = displayValue;
+    num2 = "";
+    operator = "";
+  }
 });
 
 clearButton.addEventListener("click", () => {
