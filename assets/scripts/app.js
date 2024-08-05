@@ -49,12 +49,12 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (operator === "") {
       num1 += e.target.innerText;
-      displayValue += num1;
+      displayValue = num1;
     } else {
       num2 += e.target.innerText;
-      displayValue += num2;
+      displayValue = num2;
     }
-    output.innerText = displayValue;
+    output.innerText += displayValue;
   });
 });
 
@@ -69,10 +69,12 @@ operatorButton.forEach((btn) => {
 });
 
 equalsButton.addEventListener("click", () => {
-  operate(operator, num1, num2);
-  num1 = displayValue;
-  num2 = "";
-  operator = "";
+  if (num1 !== "" && num2 !== "" && operator != "") {
+    operate(operator, num1, num2);
+    num1 = displayValue;
+    num2 = "";
+    operator = "";
+  }
 });
 
 clearButton.addEventListener("click", () => {
