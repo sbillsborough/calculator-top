@@ -39,6 +39,37 @@ function operate(operator, num1, num2) {
   output.innerText = displayValue;
 }
 
+// Add elements to the DOM with JS
+
+const containerDiv = document.createElement("div");
+containerDiv.setAttribute("class", "container");
+document.body.appendChild(containerDiv);
+
+const outputDisplay = document.createElement("p");
+outputDisplay.setAttribute("class", "output");
+containerDiv.appendChild(outputDisplay);
+
+const parentNode = outputDisplay.parentNode; // div with the class of container
+
+const numOpContainer = document.createElement("div");
+numOpContainer.setAttribute("class", "numbers-operators-container");
+parentNode.appendChild(numOpContainer);
+
+const numContainer = document.createElement("div");
+numContainer.setAttribute("class", "numbers-container");
+parentNode.appendChild(numContainer);
+
+const btn = document.createElement("button");
+btn.setAttribute("class", "number-button");
+numContainer.appendChild(btn);
+
+for (let btnNum = 0; btnNum <= 9; btnNum++) {
+  numContainer.appendChild(btn.cloneNode(true));
+  btn.innerText = btnNum;
+}
+
+// --------------------------------------
+
 const buttons = document.querySelectorAll(".number-button");
 const operatorButton = document.querySelectorAll(".operator-button");
 const decimalButton = document.querySelector(".decimal-button");
