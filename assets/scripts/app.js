@@ -75,6 +75,7 @@ const buttons = document.querySelectorAll(".number-button");
 const operatorButton = document.querySelectorAll(".operator-button");
 const decimalButton = document.querySelector(".decimal-button");
 const equalsButton = document.querySelector(".equals-button");
+const deleteButton = document.querySelector(".delete-button");
 const clearButton = document.querySelector(".clear-button");
 
 let output = document.querySelector(".output");
@@ -116,7 +117,7 @@ decimalButton.addEventListener("click", (e) => {
 });
 
 equalsButton.addEventListener("click", () => {
-  if (num1 !== "" && num2 !== 0 && operator === "/") {
+  if (num1 !== "" && num2 === "0" && operator === "/") {
     output.innerText = "Cannot divide by zero!";
     num1 = "";
     num2 = "";
@@ -126,6 +127,21 @@ equalsButton.addEventListener("click", () => {
     num1 = displayValue;
     num2 = "";
     operator = "";
+  }
+});
+
+deleteButton.addEventListener("click", () => {
+  if (num1 !== "" && num2 === "" && operator === "") {
+    num1 = "";
+    output.innerText = "";
+  } else if (num1 !== "" && num2 === "" && operator !== "") {
+    output.innerText = num1;
+    operator = "";
+    displayValue = num1 + operator;
+    output.innerText = displayValue;
+  } else if (num1 !== "" && num2 !== "" && operator !== "") {
+    output.innerText = num1 + operator;
+    num2 = "";
   }
 });
 
