@@ -39,10 +39,43 @@ function operate(operator, num1, num2) {
   output.innerText = displayValue;
 }
 
+// Add elements to the DOM with JS
+
+// const containerDiv = document.createElement("div");
+// containerDiv.setAttribute("class", "container");
+// document.body.appendChild(containerDiv);
+
+// const outputDisplay = document.createElement("p");
+// outputDisplay.setAttribute("class", "output");
+// containerDiv.appendChild(outputDisplay);
+
+// const parentNode = outputDisplay.parentNode; // div with the class of container
+
+// const numOpContainer = document.createElement("div");
+// numOpContainer.setAttribute("class", "numbers-operators-container");
+// parentNode.appendChild(numOpContainer);
+
+// const numContainer = document.createElement("div");
+// numContainer.setAttribute("class", "numbers-container");
+// parentNode.appendChild(numContainer);
+
+// const btn = document.createElement("button");
+// btn.setAttribute("class", "number-button");
+// btn.innerText = "0";
+// numContainer.appendChild(btn);
+
+// for (let btnNum = 1; btnNum <= 9; btnNum++) {
+//   numContainer.appendChild(btn.cloneNode(true));
+//   btn.innerText = btnNum;
+// }
+
+// --------------------------------------
+
 const buttons = document.querySelectorAll(".number-button");
 const operatorButton = document.querySelectorAll(".operator-button");
 const decimalButton = document.querySelector(".decimal-button");
 const equalsButton = document.querySelector(".equals-button");
+const deleteButton = document.querySelector(".delete-button");
 const clearButton = document.querySelector(".clear-button");
 
 let output = document.querySelector(".output");
@@ -84,11 +117,31 @@ decimalButton.addEventListener("click", (e) => {
 });
 
 equalsButton.addEventListener("click", () => {
-  if (num1 !== "" && num2 !== "" && operator != "") {
+  if (num1 !== "" && num2 === "0" && operator === "/") {
+    output.innerText = "Cannot divide by zero!";
+    num1 = "";
+    num2 = "";
+    operator = "";
+  } else if (num1 !== "" && num2 !== "" && operator != "") {
     operate(operator, num1, num2);
     num1 = displayValue;
     num2 = "";
     operator = "";
+  }
+});
+
+deleteButton.addEventListener("click", () => {
+  if (num1 !== "" && num2 === "" && operator === "") {
+    num1 = "";
+    output.innerText = "";
+  } else if (num1 !== "" && num2 === "" && operator !== "") {
+    output.innerText = num1;
+    operator = "";
+    displayValue = num1 + operator;
+    output.innerText = displayValue;
+  } else if (num1 !== "" && num2 !== "" && operator !== "") {
+    output.innerText = num1 + operator;
+    num2 = "";
   }
 });
 
