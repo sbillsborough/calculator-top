@@ -41,32 +41,33 @@ function operate(operator, num1, num2) {
 
 // Add elements to the DOM with JS
 
-const containerDiv = document.createElement("div");
-containerDiv.setAttribute("class", "container");
-document.body.appendChild(containerDiv);
+// const containerDiv = document.createElement("div");
+// containerDiv.setAttribute("class", "container");
+// document.body.appendChild(containerDiv);
 
-const outputDisplay = document.createElement("p");
-outputDisplay.setAttribute("class", "output");
-containerDiv.appendChild(outputDisplay);
+// const outputDisplay = document.createElement("p");
+// outputDisplay.setAttribute("class", "output");
+// containerDiv.appendChild(outputDisplay);
 
-const parentNode = outputDisplay.parentNode; // div with the class of container
+// const parentNode = outputDisplay.parentNode; // div with the class of container
 
-const numOpContainer = document.createElement("div");
-numOpContainer.setAttribute("class", "numbers-operators-container");
-parentNode.appendChild(numOpContainer);
+// const numOpContainer = document.createElement("div");
+// numOpContainer.setAttribute("class", "numbers-operators-container");
+// parentNode.appendChild(numOpContainer);
 
-const numContainer = document.createElement("div");
-numContainer.setAttribute("class", "numbers-container");
-parentNode.appendChild(numContainer);
+// const numContainer = document.createElement("div");
+// numContainer.setAttribute("class", "numbers-container");
+// parentNode.appendChild(numContainer);
 
-const btn = document.createElement("button");
-btn.setAttribute("class", "number-button");
-numContainer.appendChild(btn);
+// const btn = document.createElement("button");
+// btn.setAttribute("class", "number-button");
+// btn.innerText = "0";
+// numContainer.appendChild(btn);
 
-for (let btnNum = 0; btnNum <= 9; btnNum++) {
-  numContainer.appendChild(btn.cloneNode(true));
-  btn.innerText = btnNum;
-}
+// for (let btnNum = 1; btnNum <= 9; btnNum++) {
+//   numContainer.appendChild(btn.cloneNode(true));
+//   btn.innerText = btnNum;
+// }
 
 // --------------------------------------
 
@@ -115,7 +116,12 @@ decimalButton.addEventListener("click", (e) => {
 });
 
 equalsButton.addEventListener("click", () => {
-  if (num1 !== "" && num2 !== "" && operator != "") {
+  if (num1 !== "" && num2 !== 0 && operator === "/") {
+    output.innerText = "Cannot divide by zero!";
+    num1 = "";
+    num2 = "";
+    operator = "";
+  } else if (num1 !== "" && num2 !== "" && operator != "") {
     operate(operator, num1, num2);
     num1 = displayValue;
     num2 = "";
