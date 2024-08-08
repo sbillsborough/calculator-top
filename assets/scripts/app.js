@@ -93,6 +93,10 @@ buttons.forEach((btn) => {
   });
 });
 
+buttons.forEach((btn) => {
+  btn.addEventListener("keydown", (e) => {});
+});
+
 operatorButton.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     if (operator === "" && num1 !== "") {
