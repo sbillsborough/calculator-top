@@ -1,5 +1,5 @@
 // Functions to handle inputs
-function handleNumberInput(number) {
+export function handleNumberInput(number) {
   if (operator === "") {
     num1 += number;
     displayValue = num1;
@@ -10,7 +10,7 @@ function handleNumberInput(number) {
   updateDisplay();
 }
 
-function handleOperatorInput(op) {
+export function handleOperatorInput(op) {
   if (num1 !== "") {
     if (operator === "") {
       operator = op;
@@ -23,7 +23,7 @@ function handleOperatorInput(op) {
   }
 }
 
-function handleDecimalInput() {
+export function handleDecimalInput() {
   if (operator === "" && !num1.includes(".")) {
     num1 += ".";
   } else if (operator !== "" && !num2.includes(".")) {
@@ -33,7 +33,7 @@ function handleDecimalInput() {
   updateDisplay();
 }
 
-function handleEqualsInput() {
+export function handleEqualsInput() {
   if (num1 !== "" && num2 !== "" && operator !== "") {
     let result = operate(operator, num1, num2);
     num1 = result;
@@ -44,7 +44,7 @@ function handleEqualsInput() {
   }
 }
 
-function handleDeleteInput() {
+export function handleDeleteInput() {
   if (num2 !== "") {
     num2 = num2.slice(0, -1);
     displayValue = num1 + operator + num2;
@@ -58,7 +58,7 @@ function handleDeleteInput() {
   updateDisplay();
 }
 
-function handleClearInput() {
+export function handleClearInput() {
   num1 = "";
   num2 = "";
   operator = "";
@@ -66,11 +66,11 @@ function handleClearInput() {
   updateDisplay();
 }
 
-function updateDisplay() {
+export function updateDisplay() {
   output.innerText = displayValue;
 }
 
-function operate(operator, num1, num2) {
+export function operate(operator, num1, num2) {
   num1 = parseFloat(num1);
   num2 = parseFloat(num2);
 
