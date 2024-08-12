@@ -22,21 +22,19 @@ let displayValue = "";
 function operate(operator, num1, num2) {
   num1 = parseFloat(num1);
   num2 = parseFloat(num2);
-  let result = 0;
 
-  if (operator === "+") {
-    result += add(num1, num2);
-  } else if (operator === "-") {
-    result = subtract(num1, num2);
-  } else if (operator === "*") {
-    result = multiply(num1, num2);
-  } else if (operator === "/") {
-    result = divide(num1, num2);
+  switch (operator) {
+    case "+":
+      return add(num1, num2);
+    case "-":
+      return subtract(num1, num2);
+    case "*":
+      return multiply(num1, num2);
+    case "/":
+      return divide(num1, num2);
+    default:
+      return "Error";
   }
-
-  displayValue = result.toFixed(2);
-
-  output.innerText = displayValue;
 }
 
 const buttons = document.querySelectorAll(".number-button");
