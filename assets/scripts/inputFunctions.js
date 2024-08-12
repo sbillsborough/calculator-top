@@ -1,3 +1,10 @@
+import { updateDisplay, operate } from "./utilities.js";
+
+let num1 = "";
+let num2 = "";
+let operator = "";
+let displayValue = "";
+
 // Functions to handle inputs
 export function handleNumberInput(number) {
   if (operator === "") {
@@ -7,7 +14,7 @@ export function handleNumberInput(number) {
     num2 += number;
     displayValue = num1 + operator + num2;
   }
-  updateDisplay();
+  updateDisplay(displayValue);
 }
 
 export function handleOperatorInput(op) {
@@ -19,7 +26,7 @@ export function handleOperatorInput(op) {
       handleEqualsInput();
       operator = op;
     }
-    updateDisplay();
+    updateDisplay(displayValue);
   }
 }
 
@@ -30,7 +37,7 @@ export function handleDecimalInput() {
     num2 += ".";
   }
   displayValue = num1 + operator + num2;
-  updateDisplay();
+  updateDisplay(displayValue);
 }
 
 export function handleEqualsInput() {
@@ -40,7 +47,7 @@ export function handleEqualsInput() {
     num2 = "";
     operator = "";
     displayValue = result;
-    updateDisplay();
+    updateDisplay(displayValue);
   }
 }
 
@@ -55,7 +62,7 @@ export function handleDeleteInput() {
     num1 = num1.slice(0, -1);
     displayValue = num1;
   }
-  updateDisplay();
+  updateDisplay(displayValue);
 }
 
 export function handleClearInput() {
@@ -63,27 +70,5 @@ export function handleClearInput() {
   num2 = "";
   operator = "";
   displayValue = "";
-  updateDisplay();
-}
-
-export function updateDisplay() {
-  output.innerText = displayValue;
-}
-
-export function operate(operator, num1, num2) {
-  num1 = parseFloat(num1);
-  num2 = parseFloat(num2);
-
-  switch (operator) {
-    case "+":
-      return add(num1, num2);
-    case "-":
-      return subtract(num1, num2);
-    case "*":
-      return multiply(num1, num2);
-    case "/":
-      return divide(num1, num2);
-    default:
-      return "Error";
-  }
+  updateDisplay(displayValue);
 }
