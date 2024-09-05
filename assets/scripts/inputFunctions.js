@@ -8,14 +8,14 @@ let displayValue = "";
 // Function to handle number inputs
 export function handleNumberInput(number) {
   if (operator === "") {
-    // Append number to num1 for multi-digit entries
     num1 += number;
     displayValue = num1;
+    console.log(`num1: ${num1}`);
   } else {
-    // Append number to num2 for multi-digit entries
     num2 += number;
     displayValue = num1 + operator + num2;
   }
+  console.log(`num1: ${num1}, operator: ${operator}, num2: ${num2}`);
   updateDisplay(displayValue);
 }
 

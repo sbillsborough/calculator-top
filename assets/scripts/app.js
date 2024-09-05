@@ -18,18 +18,6 @@ import {
   clearButton,
 } from "./events.js";
 
-// Import utility functions from utilities.js
-import { updateDisplay, operate } from "./utilities.js";
-
-// Event Listeners for Buttons
-buttons.forEach((btn) => {
-  btn.addEventListener("click", (e) => handleNumberInput(e.target.innerText));
-});
-
-operatorButton.forEach((btn) => {
-  btn.addEventListener("click", (e) => handleOperatorInput(e.target.innerText));
-});
-
 decimalButton.addEventListener("click", () => handleDecimalInput());
 equalsButton.addEventListener("click", () => handleEqualsInput());
 deleteButton.addEventListener("click", () => handleDeleteInput());
