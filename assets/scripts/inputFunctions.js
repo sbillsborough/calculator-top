@@ -58,7 +58,9 @@ export function handleDecimalInput() {
 export function handleEqualsInput() {
   if (num1 !== "" && num2 !== "" && operator !== "") {
     // Ensure to use the numerical values of num1 and num2 in the operation
-    let result = operate(operator, parseFloat(num1), parseFloat(num2));
+    let result = operate(operator, parseFloat(num1), parseFloat(num2)).toFixed(
+      2
+    );
     num1 = result.toString(); // Store the result in num1 for further calculations
     num2 = ""; // Clear num2 after calculation
     operator = ""; // Reset the operator
