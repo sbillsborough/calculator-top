@@ -10,18 +10,11 @@ import {
 
 // Import DOM elements from events.js
 import {
-  buttons,
-  operatorButton,
   decimalButton,
   equalsButton,
   deleteButton,
   clearButton,
 } from "./events.js";
-
-decimalButton.addEventListener("click", () => handleDecimalInput());
-equalsButton.addEventListener("click", () => handleEqualsInput());
-deleteButton.addEventListener("click", () => handleDeleteInput());
-clearButton.addEventListener("click", () => handleClearInput());
 
 // Keyboard Support
 document.addEventListener("keydown", (e) => {
@@ -34,7 +27,6 @@ document.addEventListener("keydown", (e) => {
   } else if (key === ".") {
     handleDecimalInput();
   } else if (key === "Enter") {
-    e.preventDefault(); // Prevents form submission if any
     handleEqualsInput();
   } else if (key === "Backspace") {
     handleDeleteInput();

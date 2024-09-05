@@ -10,12 +10,11 @@ export function handleNumberInput(number) {
   if (operator === "") {
     num1 += number;
     displayValue = num1;
-    console.log(`num1: ${num1}`);
   } else {
     num2 += number;
     displayValue = num1 + operator + num2;
   }
-  console.log(`num1: ${num1}, operator: ${operator}, num2: ${num2}`);
+
   updateDisplay(displayValue);
 }
 
