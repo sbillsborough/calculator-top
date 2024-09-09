@@ -57,13 +57,21 @@ export function handleDecimalInput() {
 // Function to handle equals input
 export function handleEqualsInput() {
   if (num1 !== "" && num2 !== "" && operator !== "") {
-    // Ensure to use the numerical values of num1 and num2 in the operation
+    // Use the numerical values of num1 and num2 in the operation
     let result = operate(operator, parseFloat(num1), parseFloat(num2));
 
-    num1 = result.toString(); // Store the result in num1 for further calculations
+    // Check if the result is a number before using .toFixed()
+    if (typeof result === "number") {
+      result = result.toFixed(2);
+      num1 = result.toString(); // Store the result in num1 for further calculations
+    } else {
+      // Handle the error message (like division by zero)
+      num1 = ""; // Reset num1 if there's an error
+    }
+
     num2 = ""; // Clear num2 after calculation
     operator = ""; // Reset the operator
-    displayValue = num1; // Update display with the result
+    displayValue = result.toString(); // Update display with the result or error message
     updateDisplay(displayValue);
   }
 }
