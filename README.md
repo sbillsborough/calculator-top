@@ -53,4 +53,4 @@ This calculator is inspired by The Odin Project and used to practise JavaScript 
 
 ## Contact
 
-Created by [@sbillsborough](billsboroughscott@gmail.com) - feel free to contact me!
+Created by [@sbillsborough](https://github.com/sbillsborough) - feel free to contact me!
