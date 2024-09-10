@@ -16,7 +16,7 @@
 
 ## General info
 
-A claculator built to showcase/practise DOM manipulation, functions and modular code with separation of concerns.
+A calculator built to showcase/practise functions and modular code with separation of concerns.
 
 ## Screenshots
 
